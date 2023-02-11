@@ -12,7 +12,17 @@
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    Button
+    Container,
+    Button,
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    CardSubtitle,
+    CardText,
+    CardTitle,
+    Col,
+    Row 
   } from "sveltestrap";
 
   let isOpen = false;
@@ -37,12 +47,12 @@
           <NavLink href="/">Pengaduan</NavLink>
         </NavItem>
         <Dropdown nav inNavbar>
-          <DropdownToggle nav caret>{}</DropdownToggle>
+          <DropdownToggle nav caret>{data.userDetail.level}</DropdownToggle>
           <form method="POST" action="/logout">
             <DropdownMenu end>
-              <DropdownItem>Nama</DropdownItem>
-              <DropdownItem>NIK</DropdownItem>
-              <DropdownItem>NoTelp</DropdownItem>
+              <DropdownItem>Nama: {data.userDetail.nama}</DropdownItem>
+              <DropdownItem>NIK: {data.userDetail.nik}</DropdownItem>
+              <DropdownItem>No Telp: {data.userDetail.telepon}</DropdownItem>
               <DropdownItem divider />
               <DropdownItem type="submit"
                 >Logout</DropdownItem
@@ -53,4 +63,7 @@
       </Nav>
     </Collapse>
   </Navbar>
-<slot />
+
+  <Container fluid class="mt-3">    
+    <slot />
+  </Container>
